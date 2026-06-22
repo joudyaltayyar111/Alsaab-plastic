@@ -414,30 +414,35 @@ nav a:hover{
 
 }
 #slider{
-display:none;
-text-align:center;
-margin:30px auto;
+    display:none;
+    text-align:center;
+    margin:30px auto;
+    width:100%;
+    padding:0 20px;
 }
 
 
 #slider img{
 
-width:450px;
+    width:100%;
+    max-width:450px;
 
-height:350px;
+    height:auto;
 
-object-fit:contain;
+    aspect-ratio: 450 / 350;
 
-cursor:pointer;
+    object-fit:contain;
+
+    cursor:pointer;
 
 }
 
 
 #slider h3{
 
-color:#2563eb;
+    color:#2563eb;
 
-font-size:25px;
+    font-size:25px;
 
 }
 
@@ -535,6 +540,19 @@ nav a{
 
 
 }
+#slider img{
+
+    max-width:100%;
+
+}
+
+#slider h3{
+
+    font-size:20px;
+
+}
+
+
 
 </style>
 </head>
