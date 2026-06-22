@@ -35,6 +35,10 @@ header{
 
     border-bottom:3px solid #2563eb;
 
+    position:sticky;
+    top:0;
+    z-index:999;
+
 }
 
 
@@ -424,12 +428,8 @@ nav a:hover{
 
 #slider img{
 
-    width:100%;
-    max-width:450px;
-
-    height:auto;
-
-    aspect-ratio: 450 / 350;
+    width:350px;
+    height:250px;
 
     object-fit:contain;
 
@@ -540,11 +540,17 @@ nav a{
 
 
 }
+
 #slider img{
 
+    width:100%;
     max-width:100%;
+    height:auto;
+
+    max-height:300px;
 
 }
+
 
 #slider h3{
 
@@ -909,7 +915,7 @@ sliderIndex = 0;
 
 showSlide();
 
-setInterval(showSlide,3000);
+setInterval(showSlide,1000);
 
 }
 </script>
