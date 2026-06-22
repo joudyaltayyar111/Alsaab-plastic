@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تفاصيل المنتج</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Cairo";
+}
+
+
+body{
+
+background:#f8f9fa;
+
+}
+
+.back-home{
+
+display:block;
+
+width:fit-content;
+
+margin:20px auto;
+
+background:#2563eb;
+
+color:white;
+
+padding:10px 25px;
+
+border-radius:25px;
+
+text-decoration:none;
+
+font-size:16px;
+
+}
+
+
+.back-home:hover{
+
+background:#1e40af;
+
+}
+
+.product-details{
+
+width:80%;
+
+margin:50px auto;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 5px 15px #ddd;
+
+
+}
+
+
+.product-details img{
+
+width:350px;
+
+height:350px;
+
+object-fit:contain;
+
+}
+
+
+
+h1{
+
+color:#2563eb;
+
+margin:20px;
+
+}
+
+
+p{
+
+font-size:18px;
+
+margin:10px;
+
+color:#555;
+
+}
+
+
+
+button{
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:12px 30px;
+
+border-radius:25px;
+
+font-size:17px;
+
+cursor:pointer;
+
+
+}
+
+
+
+button:hover{
+
+background:#1e40af;
+
+}
+@media(max-width:768px){
+
+.product-details{
+
+    width:90%;
+
+    margin:25px auto;
+
+    padding:20px;
+
+}
+
+
+.product-details img{
+
+    width:100%;
+max-width:100%;
+    height:auto;
+
+    max-height:300px;
+
+}
+
+
+h1{
+
+    font-size:25px;
+
+}
+
+
+p{
+
+    font-size:16px;
+
+}
+
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="product-details" id="productDetails">
+
+
+</div>
+<a href="index.html" class="back-home">
+العودة للصفحة الرئيسية
+</a>
+
+
+<script type="module">
+
+
+import { initializeApp } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getDatabase, ref, onValue, update } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyA3oTiSXhzqGxhhkWt3E-cHRn-92yaW5iw",
+
+authDomain: "alsaeeb-plastic.firebaseapp.com",
+
+databaseURL: "https://alsaeeb-plastic-default-rtdb.firebaseio.com",
+
+projectId:"alsaeeb-plastic",
+
+storageBucket:"alsaeeb-plastic.firebasestorage.app",
+
+messagingSenderId:"984069142088",
+
+appId:"1:984069142088:web:776f3a5df0f2865225ca7d"
+
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const db = getDatabase(app);
+
+
+
+
+
+let id = new URLSearchParams(window.location.search)
+
+.get("id");
+
+
+
+
+const productRef = ref(db,"products/"+id);
+
+
+
+
+
+onValue(productRef,(snapshot)=>{
+
+
+let product = snapshot.val();
+
+
+
+if(product){
+
+
+document.getElementById("productDetails").innerHTML = `
+
+
+<img src="${product.image}">
+
+
+<h1>${product.name}</h1>
+
+
+<p>السعر: ${product.price}</p>
+
+
+<p>${product.desc1}</p>
+
+
+<p>${product.desc2}</p>
+
+
+<button onclick="orderProduct('${id}','${product.name}')">
+
+اطلب عبر واتساب
+
+</button>
+
+
+
+`;
+
+
+
+}
+
+
+
+});
+
+
+
+
+window.orderProduct=function(id,name){
+
+
+let productRef = ref(db,"products/"+id);
+
+
+
+onValue(productRef,(snapshot)=>{
+
+
+let product = snapshot.val();
+
+
+update(productRef,{
+
+orders:(product.orders || 0) + 1
+
+});
+
+
+},{
+onlyOnce:true
+});
+
+
+
+
+let phone="963965000556";
+
+
+let message=`مرحبا أريد الاستفسار عن المنتج: ${name}`;
+
+
+let url=
+
+`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+
+window.open(url,"_blank");
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

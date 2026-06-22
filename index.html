@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصعب للبلاستيك</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Cairo", sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+}
+
+
+/* Header */
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 60px;
+
+    background:#dbeafe;
+
+    border-bottom:3px solid #2563eb;
+
+}
+
+
+/* Logo */
+
+.logo-section{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+
+.logo-section img{
+
+    width:60px;
+    height:60px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+
+.logo-section h2{
+
+    color: #2563eb;
+
+    font-size:25px;
+
+    margin:0;
+
+}
+
+
+.logo-section p{
+
+    color:#2563eb;
+
+    font-size:13px;
+
+}
+
+
+/* Navbar */
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+
+nav a{
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    transition:0.3s;
+
+}
+
+
+nav a:hover{
+
+    background-color: #2563eb;
+    color: white;
+
+}
+
+
+
+/* Search */
+
+.search-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin:35px auto;
+
+    padding:0 20px;
+
+}
+
+
+
+#searchInput{
+
+    width:500px;
+
+    max-width:100%;
+
+
+    padding:13px 22px;
+
+
+    border:1px solid #ddd;
+
+
+    border-radius:30px;
+
+
+    outline:none;
+
+
+    font-size:16px;
+
+
+    background:white;
+
+    
+
+}
+
+
+
+#searchInput:focus{
+
+    border-color:#2563eb;
+
+}
+/*body*/
+.product-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    padding:30px 60px;
+
+}
+
+.product-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    text-align:center;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+.product-card:hover{
+
+    transform:translateY(-5px);
+
+}
+.product-card img{
+
+      width:100%;
+
+    height:220px;
+
+    object-fit:contain;
+
+    background:white;
+
+
+}
+#categoryTitle{
+
+    color:#2563eb;
+
+    font-size:32px;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+#productContainer{
+    color: #2563eb;
+}
+.product-card button{
+
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:.3s;
+
+}
+
+.product-card button:hover{
+
+    background:#1e40af;
+
+}
+#categoryTitle{
+    color:#2563eb;
+    font-size:32px;
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+/*end body*/
+
+      /* Footer */
+
+.footer{
+
+    background:#dbeafe;
+
+    padding:40px 60px;
+
+    margin-top:50px;
+
+}
+
+
+.footer .box-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:80px;
+
+    align-items:start;
+
+}
+
+
+.footer .box h3{
+
+    font-size:25px;
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+
+.footer .box p{
+
+    font-size:16px;
+
+    line-height:2;
+
+    color:#2563eb;
+
+    max-width:450px;
+
+}
+
+
+
+.footer .box .links{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    width:fit-content;
+
+    transition:.3s;
+
+}
+
+
+.footer .box .links:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.footer .brand{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    padding-top:20px;
+
+    font-size:18px;
+
+    color:#2563eb;
+
+    border-top:1px solid #2563eb;
+
+}
+.dropdown{
+    position:relative;
+}
+
+.dropdown-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    right:0;
+
+    background:#dbeafe;
+
+    min-width:180px;
+
+    list-style:none;
+
+    border-radius:10px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+    padding:10px 0;
+
+    z-index:1000;
+
+}
+
+.dropdown-menu li{
+
+    width:100%;
+
+}
+
+.dropdown-menu li a{
+
+    display:block;
+
+    padding:10px 15px;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+}
+
+.dropdown-menu li a:hover{
+
+    background:#2563eb;
+    color: white;
+
+}
+
+.dropdown:hover .dropdown-menu{
+
+    display:block;
+
+}
+#slider{
+display:none;
+text-align:center;
+margin:30px auto;
+}
+
+
+#slider img{
+
+width:450px;
+
+height:350px;
+
+object-fit:contain;
+
+cursor:pointer;
+
+}
+
+
+#slider h3{
+
+color:#2563eb;
+
+font-size:25px;
+
+}
+
+/* Responsive Footer */
+
+@media(max-width:768px){
+
+
+.footer{
+
+    padding:30px 20px;
+
+}
+
+
+.footer .box-container{
+
+    grid-template-columns:1fr;
+
+    gap:35px;
+
+}
+
+
+.footer .box{
+
+    text-align:center;
+
+}
+
+
+.footer .box p{
+
+    margin:auto;
+
+}
+
+
+.footer .box .links{
+
+    margin:8px auto;
+
+}
+
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+
+.logo-section{
+
+    flex-direction:row;
+
+}
+
+
+.logo-section img{
+
+    width:60px;
+
+    height:60px;
+
+}
+
+
+nav ul{
+
+    flex-direction:row;
+
+    gap:20px;
+
+}
+
+
+nav a{
+
+    font-size:14px;
+
+}
+
+
+
+
+}
+
+</style>
+</head>
+<body>
+<!--header-->
+<header>
+
+    <div class="logo-section">
+
+        <img src="images/Logo.png" alt="Logo">
+
+        <div>
+            <h2>الصعب</h2>
+            <p>للبلاستيك</p>
+        </div>
+
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+           <li class="dropdown"><a href="#">الأصناف</a>
+                <ul class="dropdown-menu">
+                
+                <li><a href="index.html?category=bags">أكياس</a></li>
+
+                <li><a href="index.html?category=cups">كاسات</a></li>
+
+                <li><a href="index.html?category=boxes">علب</a></li>
+
+                </ul>
+           </li>
+            <li><a href="https://wa.me/963965000556">التواصل</a></li>
+    </ul>
+    </nav>
+
+</header>
+
+<section class="search-container">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="ابحث عن منتج..."
+    >
+
+</section>
+<!--end header-->
+<section class="products">
+
+<h2 id="categoryTitle"></h2>
+
+
+<div id="slider">
+
+<img id="sliderImage">
+
+<h3 id="sliderName"></h3>
+
+</div>
+
+
+<div id="productContainer" class="product-container">
+
+</div>
+
+</section>
+<!--footer-->
+<section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>الصعب للبلاستيك</h3>
+                <p>الصعب للبلاستيك شركة متخصصة في تصنيع وتوفير منتجات البلاستيك بجودة عالية، نسعى لتقديم أفضل الحلول لعملائنا.</p>
+                <div class="social">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>تواصل معنا</h3>
+        
+                <a href="#" class="links">الهاتف:0965000556</a>
+                <a href="#" class="links">📍 العنوان: سوريا</a>
+                <a href="#" class="links"> ✉ البريد: example@gmail.com</a>
+            </div>
+
+
+
+        </div>
+
+        <div class="brand"><span>© 2026 لصعب للبلاستيك - جميع الحقوق محفوظة</span></div>
+    </section>
+    <!--end footer-->
+</body>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  update
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+function displayProducts(products,title){
+
+    document.getElementById("categoryTitle").innerText = title;
+
+    let html = "";
+
+    products.forEach(product => {
+
+        html += `
+<div class="product-card">
+
+<a href="product.html?id=${product.id}">
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+</a>
+
+<p>السعر: ${product.price}</p>
+
+<p>${product.desc1}</p>
+
+<p>${product.desc2}</p>
+
+
+<button onclick="event.stopPropagation(); orderProduct('${product.id}', \`${product.name}\`)">
+اطلب هذا المنتج
+</button>
+
+
+</div>
+`;
+    });
+
+    document.getElementById("productContainer").innerHTML = html;
+
+}
+
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA3oTiSXhzqGxhhkWt3E-cHRn-92yaW5iw",
+  authDomain: "alsaeeb-plastic.firebaseapp.com",
+  databaseURL: "https://alsaeeb-plastic-default-rtdb.firebaseio.com",
+  projectId: "alsaeeb-plastic",
+  storageBucket: "alsaeeb-plastic.firebasestorage.app",
+  messagingSenderId: "984069142088",
+  appId: "1:984069142088:web:776f3a5df0f2865225ca7d"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+const productsRef = ref(db,"products");
+
+
+onValue(productsRef,(snapshot)=>{
+
+let data = snapshot.val();
+
+if(data){
+
+let products = Object.entries(data).map(([id,product])=>{
+
+return {
+
+id:id,
+
+...product
+
+}
+
+});
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", () => {
+
+let value = searchInput.value.trim().toLowerCase();
+
+if(value === ""){
+
+if(urlCategory){
+
+document.getElementById("slider").style.display="none";
+
+let filteredProducts = products.filter(product =>
+product.category === urlCategory
+);
+
+displayProducts(filteredProducts,titles[urlCategory]);
+
+}else{
+
+document.getElementById("slider").style.display="block";
+
+document.getElementById("categoryTitle").innerText =
+"الأكثر مبيعاً";
+
+document.getElementById("productContainer").innerHTML = "";
+
+}
+
+return;
+}
+document.getElementById("slider").style.display="none";
+
+let filtered = products.filter(product =>
+
+product.name?.toLowerCase().includes(value) ||
+
+product.desc1?.toLowerCase().includes(value) ||
+
+product.desc2?.toLowerCase().includes(value)
+
+);
+
+displayProducts(filtered,"نتائج البحث");
+
+if(filtered.length === 0){
+    document.getElementById("productContainer").innerHTML =
+    "<h3 style='text-align:center'>لا توجد نتائج</h3>";
+    return;
+}
+
+});
+
+let urlCategory = new URLSearchParams(window.location.search)
+.get("category");
+
+let titles = {
+bags:"أكياس",
+cups:"كاسات",
+boxes:"علب"
+};
+
+if(urlCategory){
+
+// إخفاء السلايدر
+document.getElementById("slider").style.display="none";
+
+
+let filteredProducts = products.filter(product =>
+product.category === urlCategory
+);
+
+
+displayProducts(
+filteredProducts,
+titles[urlCategory]
+);
+
+
+
+}else{
+
+
+// إظهار السلايدر
+document.getElementById("slider").style.display="block";
+
+
+products.sort((a,b)=>
+(b.orders || 0) - (a.orders || 0)
+);
+
+
+sliderProducts = products.slice(0,6);
+
+document.getElementById("categoryTitle").innerText =
+"الأكثر مبيعاً";
+startSlider();
+
+
+}
+
+}
+
+});
+
+
+
+
+function orderProduct(productId, productName){
+
+    let productRef = ref(db,"products/"+productId);
+
+
+    onValue(productRef,(snapshot)=>{
+
+        let product = snapshot.val();
+
+        update(productRef,{
+            orders:(product.orders || 0) + 1
+        });
+
+    },{
+        onlyOnce:true
+    });
+
+
+    let phone = "963965000556";
+
+    let message = `مرحبا، أرغب بالاستفسار عن المنتج: ${productName}`;
+
+    let url =
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url,"_blank");
+
+}
+window.orderProduct = orderProduct;
+
+let sliderProducts = [];
+let sliderIndex = 0;
+
+
+
+function startSlider(){
+
+function showSlide(){
+
+let product = sliderProducts[sliderIndex];
+
+document.getElementById("sliderImage").src =
+product.image;
+
+document.getElementById("sliderName").innerText =
+product.name;
+
+document.getElementById("sliderImage").onclick = function(){
+
+window.location.href =
+"product.html?id=" + product.id;
+
+};
+
+sliderIndex++;
+
+if(sliderIndex >= sliderProducts.length){
+sliderIndex = 0;
+}
+
+}
+
+showSlide();
+
+setInterval(showSlide,3000);
+
+}
+</script>
+</html>
